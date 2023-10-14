@@ -42,6 +42,14 @@ body {
     border-bottom: none;
 }
 
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
 
 .active{
 
