@@ -32,6 +32,24 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
+}
+
+
+
+.cell.x,
+.cell.o {
+    cursor: not-allowed;
+}
+
+.cell.x::before,
+.cell.x::after {
+    background-color: black;
+}
+
+.board.x .cell:not(.x):not(.o):hover::after, 
+.board.x .cell:not(.x):not(.o):hover::before {
+    background-color: lightgrey;
 }
 
 .cell:first-child,
@@ -55,20 +73,23 @@ body {
 }
 
 .cell.x::after,
-.cell.x::before {
+.cell.x::before,
+.board.x .cell:not(.x):not(.o):hover::after, 
+.board.x .cell:not(.x):not(.o):hover::before {
     content: '';
     width: calc(var(--mark-size) * .15);
     height: var(--mark-size);
-    background-color: black;
     position: absolute;
 }
 
-.cell.x::before {
+.cell.x::before,
+.board.x .cell:not(.x):not(.o):hover::before {
     transform: rotate(45deg);
 }
 
 
-.cell.x::after {
+.cell.x::after,
+.board.x .cell:not(.x):not(.o):hover::after{
     transform: rotate(-45deg);
 }
 
