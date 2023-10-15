@@ -71,6 +71,30 @@ body {
 .cell.x::after {
     transform: rotate(-45deg);
 }
+
+
+
+.cell.o::after {
+    content: '';
+    width: calc(var(--mark-size) * .90);
+    height: calc(var(--mark-size) * .90);
+    background-color: black;
+    position: absolute;
+    border-radius: 100%;
+}
+
+.cell.o::before {
+    content: '';
+    width: calc(var(--mark-size) * .60);
+    height: calc(var(--mark-size) * .60);
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    border-radius: 100%;
+}
+
+
+
 .active{
 
 }
