@@ -127,4 +127,40 @@ body {
 }
 
 
+/* Relay message */
+
+.winning-message {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    color: white;
+    font-size: 5rem;
+}
+
+.winning-message button {
+    font-size: 3rem;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.winning-message button:hover {
+    font-size: 3rem;
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+}
+
+.show-message {
+    display: flex;
+}
+
 
