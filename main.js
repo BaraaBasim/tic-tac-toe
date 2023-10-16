@@ -1,6 +1,10 @@
 function player(mark) {
   let _mark = mark;
-  return {};
+  let turn = false;
+  return {
+    mark,
+    turn,
+  };
 }
 
 const gameBoard = (function () {

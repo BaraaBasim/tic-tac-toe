@@ -62,7 +62,6 @@ body {
     cursor: not-allowed;
 }
 
-/* mark shadows */
 
 .cell.x::before,
 .cell.x::after,
@@ -71,6 +70,7 @@ body {
     background-color: black;
 }
 
+/* mark shadows */
 
 .board.x .cell:not(.x):not(.o):hover::after, 
 .board.x .cell:not(.x):not(.o):hover::before,
@@ -126,10 +126,11 @@ body {
     border-radius: 100%;
 }
 
+/*  */
 
-/* Relay message */
+/* Overlay message */
 
-.winning-message {
+.overlay {
     position: fixed;
     top: 0;
     right: 0;
@@ -145,13 +146,14 @@ body {
     font-size: 5rem;
 }
 
-.winning-message button {
+
+.winning-message + button {
     font-size: 3rem;
     background-color: white;
     border: 2px solid black;
 }
 
-.winning-message button:hover {
+.winning-message + button:hover {
     font-size: 3rem;
     background-color: black;
     border: 2px solid white;
@@ -159,8 +161,9 @@ body {
     cursor: pointer;
 }
 
-.show-message {
+.show {
     display: flex;
+    flex-direction: column;
 }
 
 
