@@ -8,19 +8,35 @@ function player(mark) {
 }
 
 const gameBoard = (function () {
-  let board = new Array(9);
+  let _board = new Array(9);
   const cellElements = document.querySelectorAll(".cell");
   cellElements.forEach((cell) => {
     cell.addEventListener("click", handleClick);
   });
-  function switchTurn(player) {
-    if (player.mark === "x") {
+})();
+
+const gameController = (() => {
+  function switchTurn() {
+    const board = document.getElementById("board");
+    if (board.classList.contains("x")) {
+      board.classList.remove("x");
+      board.classList.add("o");
+    } else if (board.classList.contains("o")) {
+      board.classList.remove("o");
+      board.classList.add("x");
     }
   }
 
-  function getTurn() {}
-
-  function setMark(player, mark) {}
+  return {
+    getHumanPlayer,
+    getAiPlayer,
+    checkForWin,
+    checkForDraw,
+    switchTurn,
+    playerStep,
+    endGame,
+    restart,
+  };
 })();
 
-const displayController = (function () {})();
+const displayController = () => {};
