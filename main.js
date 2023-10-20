@@ -9,6 +9,17 @@ function player(mark) {
 
 const gameBoard = (function () {
   let board = new Array(9);
+  const cellElements = document.querySelectorAll(".cell");
+  cellElements.forEach((cell) => {
+    cell.addEventListener("click", handleClick);
+  });
+  function switchTurn(player) {
+    if (player.mark === "x") {
+    }
+  }
+
+  function getTurn() {}
+
   function setMark(player, mark) {}
 })();
 
