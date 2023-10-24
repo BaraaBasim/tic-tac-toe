@@ -1,14 +1,22 @@
 const board = document.getElementById("board");
 const cells = document.querySelectorAll(".cell");
+const overlay = document.querySelector(".overlay");
+const restartBtn = document.getElementById("restart");
+const winningMsg = document.getElementById("winningMsg");
 let playerTurn = "x";
+restartBtn.addEventListener("click", reset);
 reset();
 function clickHandler(e) {
   e.target.classList.add(playerTurn);
   if (checkWin(playerTurn)) {
-    console.log(playerTurn, " wins!");
-    reset();
+    overlay.classList.add("show");
+    winningMsg.innerText = playerTurn.toUpperCase() + " Wins!";
   }
   switchTurn();
+  if (checkDraw()) {
+    overlay.classList.add("show");
+    winningMsg.innerText = "Draw!";
+  }
 }
 
 function switchTurn() {
@@ -26,13 +34,10 @@ function switchTurn() {
   }
 }
 
-function checkFinish() {
-  cells.forEach((cell) => {
-    if (!cell.classList.contains("x") && !cell.classList.contains("o")) {
-      return false;
-    }
+function checkDraw() {
+  return [...cells].every((cell) => {
+    return cell.classList.contains("x") || cell.classList.contains("o");
   });
-  return true;
 }
 
 function checkWin(mark) {
@@ -59,4 +64,6 @@ function reset() {
     cell.addEventListener("click", clickHandler, { once: true });
     cell.classList = "cell";
   });
+  overlay.classList.remove("show");
+  winningMsg.innerText = "";
 }
