@@ -1,16 +1,17 @@
+const board = document.getElementById("board");
 const cells = document.querySelectorAll(".cell");
 let playerTurn = "x";
-cells.forEach((cell) => {
-  cell.addEventListener("click", clickHandler, { once: true });
-});
-
+reset();
 function clickHandler(e) {
   e.target.classList.add(playerTurn);
+  if (checkWin(playerTurn)) {
+    console.log(playerTurn, " wins!");
+    reset();
+  }
   switchTurn();
 }
 
 function switchTurn() {
-  const board = document.getElementById("board");
   if (board.classList.contains("x")) {
     board.classList.remove("x");
     board.classList.add("o");
@@ -34,8 +35,8 @@ function checkFinish() {
   return true;
 }
 
-function checkWin() {
-  const winningCombinations = [
+function checkWin(mark) {
+  const WINNING_COMBINATIONS = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -45,4 +46,17 @@ function checkWin() {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+  return WINNING_COMBINATIONS.some((combination) => {
+    return combination.every((index) => {
+      return cells[index].classList.contains(mark);
+    });
+  });
+}
+
+function reset() {
+  cells.forEach((cell) => {
+    cell.addEventListener("click", clickHandler, { once: true });
+    cell.classList = "cell";
+  });
 }
