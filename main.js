@@ -11,12 +11,11 @@ function clickHandler(e) {
   if (checkWin(playerTurn)) {
     overlay.classList.add("show");
     winningMsg.innerText = playerTurn.toUpperCase() + " Wins!";
-  }
-  switchTurn();
-  if (checkDraw()) {
+  } else if (checkDraw()) {
     overlay.classList.add("show");
     winningMsg.innerText = "Draw!";
   }
+  switchTurn();
 }
 
 function switchTurn() {
